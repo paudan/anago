@@ -24,8 +24,8 @@ if sys.argv[-1] == 'publish':
     sys.exit()
 
 required = [
-    'Keras>=2.2.0', 'h5py>=2.7.1', 'scikit-learn>=0.19.1',
-    'numpy>=1.14.3', 'tensorflow>=1.8.0', 'requests>=2.18.4',
+    'Keras>=2.2.0,<2.2.5', 'h5py>=2.7.1', 'scikit-learn>=0.19.1',
+    'numpy>=1.14.3', 'tensorflow>=1.8.0,<2.0', 'requests>=2.18.4',
     'seqeval>=0.0.3'
 ]
 
