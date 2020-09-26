@@ -4,18 +4,16 @@ Tagging example.
 import argparse
 import os
 from pprint import pprint
-
 from anago.tagger import Tagger
-from anago.models import BiLSTMCRF
+from anago.models import load_model
 from anago.preprocessing import IndexTransformer
 
 
 def main(args):
     print('Loading objects...')
-    model = BiLSTMCRF.load(args.weights_file, args.params_file)
+    model = load_model(args.weights_file, args.params_file)
     it = IndexTransformer.load(args.preprocessor_file)
     tagger = Tagger(model, preprocessor=it)
-
     print('Tagging a sentence...')
     res = tagger.analyze(args.sent)
     pprint(res)

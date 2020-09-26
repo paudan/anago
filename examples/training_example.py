@@ -5,7 +5,7 @@ import argparse
 import os
 
 from anago.utils import load_data_and_labels
-from anago.models import BiLSTMCRF
+from anago.models import BiLSTMCRF, save_model
 from anago.preprocessing import IndexTransformer
 from anago.trainer import Trainer
 
@@ -38,7 +38,7 @@ def main(args):
     trainer.train(x_train, y_train, x_valid, y_valid)
 
     print('Saving the model...')
-    model.save(args.weights_file, args.params_file)
+    save_model(args.weights_file, args.params_file)
     p.save(args.preprocessor_file)
 
 
