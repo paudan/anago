@@ -9,13 +9,13 @@ import numpy as np
 from keras.utils import Sequence, get_file
 
 
-def download(url):
+def download(url, dir_path):
     """Download a trained weights, config and preprocessor.
 
     Args:
         url (str): target url.
     """
-    filepath = get_file(fname='tmp.zip', origin=url, extract=True)
+    filepath = get_file(fname=os.path.join(dir_path, 'tmp.zip'), origin=url, extract=True)
     base_dir = os.path.dirname(filepath)
     weights_file = os.path.join(base_dir, 'weights.h5')
     params_file = os.path.join(base_dir, 'params.json')
